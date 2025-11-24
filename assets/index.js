@@ -54,17 +54,15 @@ imageInput.addEventListener('change', (event) => {
     var data = new FormData();
     data.append("image", file);
 
-    fetch('	https://api.imgur.com/3/image' ,{
+    fetch('https://api.imgbb.com/1/upload?key=7138bffa90e0fc8adae02909107c2191' ,{
         method: 'POST',
-        headers: {
-            'Authorization': 'Client-ID ec67bcef2e19c08'
-        },
+        headers: {},
         body: data
     })
     .then(result => result.json())
     .then(response => {
         
-        var url = response.data.link;
+        var url = response.data.url;
         upload.classList.remove("error_shown")
         upload.setAttribute("selected", url);
         upload.classList.add("upload_loaded");
@@ -153,3 +151,4 @@ guide.addEventListener('click', () => {
     }
 
 })
+
